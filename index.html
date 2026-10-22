@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AMAIS FÁCIL | Cartão corporativo com cashback</title>
+<meta name="description" content="Crédito corporativo, cartão com cashback real de 1,5% e anuidade zero para empresas e empreendedores. Análise expressa 100% digital.">
+<meta name="theme-color" content="#2d0652">
+<link rel="icon" type="image/svg+xml" href="assets/svg/favicon.svg">
+<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/pp-neue-montreal">
+<link rel="preload" as="image" href="assets/img/hero-woman-empty.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="topo">
+  <a class="site-header__logo" href="#topo" aria-label="AMAIS FÁCIL, início">
+    <img src="assets/svg/logo-white.svg" alt="AMAIS FÁCIL" width="69" height="42">
+  </a>
+
+  <nav class="site-nav" aria-label="Navegação principal">
+    <a href="#topo">Início</a>
+    <a href="#solucoes">Soluções</a>
+    <a href="#vantagens">Vantagens</a>
+    <a href="#cashback">Cashback</a>
+    <a href="#como-funciona">Como Funciona</a>
+  </nav>
+
+  <a class="pill-link" href="#proposta">Solicitar Cartão</a>
+
+  <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile drawer -->
+<div class="drawer" id="mobile-menu" hidden>
+  <nav class="drawer__nav" aria-label="Navegação mobile">
+    <a href="#topo">Início</a>
+    <a href="#solucoes">Soluções</a>
+    <a href="#vantagens">Vantagens</a>
+    <a href="#cashback">Cashback</a>
+    <a href="#como-funciona">Como Funciona</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#faq">Perguntas Frequentes</a>
+  </nav>
+  <a class="btn drawer__cta" href="#proposta">
+    <span class="btn__label">Solicitar Cartão</span>
+    <img class="btn__icon" src="assets/svg/arrow.svg" alt="" aria-hidden="true">
+  </a>
+</div>
+
+<main id="conteudo">
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero__media">
+    <picture>
+      <source media="(max-width: 900px)" srcset="assets/img/hero-woman-mobile-empty.png">
+      <img class="hero__photo" id="heroPhoto" src="assets/img/hero-woman-empty.png" alt="Mulher sentada segurando o cartão AMAIS FÁCIL" fetchpriority="high">
+    </picture>
+  </div>
+
+  <div class="hero__inner">
+    <div class="hero__badges">
+      <span class="badge"><b>+600 /</b>&nbsp;Redes credenciadas</span>
+      <span class="badge"><b>+250 MIL</b>&nbsp;Empresas simplificando o caixa</span>
+    </div>
+
+    <h1 class="hero__title">
+      Mais <span class="grad">liberdade financeira</span> para você transformar planos em <span class="grad">conquistas</span>
+    </h1>
+
+    <p class="hero__lead">
+      A modalidade de crédito corporativo desenhada para quem busca fôlego financeiro com responsabilidade.
+      Uma experiência transparente, 100% digital, com cashback real e sem letrinhas miúdas.
+    </p>
+
+    <a class="btn" href="#solucoes">
+      <span class="btn__label">Quero Conhecer as Soluções</span>
+      <img class="btn__icon" src="assets/svg/arrow.svg" alt="" aria-hidden="true">
+    </a>
+  </div>
+</section>
+
+<!-- ============ 2. SOLUÇÕES / VANTAGENS ============ -->
+<section class="s2" id="solucoes">
+  <div class="s2__row">
+    <div class="s2__text" data-reveal>
+      <h2 class="h2">Soluções de Crédito <span class="grad">Práticas, Seguras e Sem Complicação</span></h2>
+      <p class="lead">
+        O AMAIS FÁCIL foi desenvolvido para quem busca fôlego financeiro com responsabilidade. Condições
+        diferenciadas, parcelas previsíveis e autonomia para você decidir como usar seus recursos, com o
+        controle do orçamento do começo ao fim.
+      </p>
+      <ul class="pains" aria-label="O que o AMAIS FÁCIL resolve">
+        <li>Encargos e anuidades bancárias que pesam no caixa</li>
+        <li>Burocracia e meses de espera para aprovar limite</li>
+        <li>Zero retorno nas compras operacionais do dia a dia</li>
+        <li>Faturas com tarifas escondidas e sem controle</li>
+      </ul>
+    </div>
+    <!-- slot 1: o cartão voador pousa aqui -->
+    <div class="card-slot" id="slotFlat" aria-hidden="true"></div>
+  </div>
+
+  <div class="s2__row s2__row--rev" id="vantagens">
+    <!-- slot 2: o cartão vira 3D e para aqui -->
+    <div class="card-slot card-slot--tilt" id="slotTilt" aria-hidden="true"></div>
+
+    <div class="s2__text" data-reveal>
+      <h2 class="h2">Vantagens do <span class="grad">AMAIS FÁCIL</span></h2>
+      <ol class="adv">
+        <li><span class="adv__n">1</span><p><b>Encargos Reduzidos e Anuidade Zero:</b> Condições diferenciadas e taxas competitivas, com um fluxo de caixa previsível que não pesa no orçamento.</p></li>
+        <li><span class="adv__n">2</span><p><b>Liberação Ágil do Saldo:</b> Cartão virtual liberado logo após a análise expressa e crédito disponível em até 24 horas úteis.</p></li>
+        <li><span class="adv__n">3</span><p><b>Contratação Descomplicada:</b> Análise pensada para empresas e empreendedores. 100% online, sem papelada e sem exigências descabidas.</p></li>
+        <li><span class="adv__n">4</span><p><b>Gestão Digital e Múltiplos Cartões:</b> Cartões virtuais por departamento ou funcionário, com limites individuais e gastos em tempo real.</p></li>
+      </ol>
+      <a class="btn" href="#proposta">
+        <span class="btn__label">Quero Conhecer as Soluções</span>
+        <img class="btn__icon" src="assets/svg/arrow.svg" alt="" aria-hidden="true">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. FAIXA CASHBACK ============ -->
+<section class="band" id="cashback">
+  <div class="band__inner" data-reveal>
+    <h2 class="band__title">Dinheiro de volta em <span class="grad grad--light">absolutamente todas</span> as compras</h2>
+    <p class="band__lead">
+      Esqueça catálogos de pontos que expiram. No AMAIS FÁCIL o cashback é direto, transparente e cai na sua
+      conta todo mês para impulsionar o seu caixa.
+    </p>
+    <div class="band__notes">
+      <span class="band__note">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <b>1,5%</b> em todas as categorias
+      </span>
+      <span class="band__note">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5.4l3.4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <b>Sem validade</b> e sem pegadinhas
+      </span>
+      <span class="band__note">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/></svg>
+        Desconto na <b>fatura ou saldo em conta</b>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. CASHBACK POR CATEGORIA ============ -->
+<section class="eco" id="categorias">
+  <div class="eco__grid">
+    <div class="eco__left" data-reveal>
+      <span class="tag"><img src="assets/svg/star.svg" alt="" aria-hidden="true">Cashback de 1,5% sem exceções</span>
+      <h2 class="h2">Retorno real em cada <span class="grad">despesa da sua empresa</span></h2>
+      <p class="lead">Combustível, softwares de gestão, alimentação, viagens ou anúncios: tudo gera retorno em dinheiro, sem catálogo e sem prazo para expirar.</p>
+      <a class="btn btn--lg" href="#proposta">
+        <span class="btn__label">Quero Meu Cashback</span>
+        <img class="btn__icon" src="assets/svg/arrow.svg" alt="" aria-hidden="true">
+      </a>
+    </div>
+
+    <ul class="eco__cards" id="ecoCards">
+      <li class="eco-card">
+        <div class="eco-card__copy">
+          <span class="chip"><img src="assets/svg/star.svg" alt="" aria-hidden="true"><b>Combustível:</b></span>
+          <p>1,5% de volta em cada abastecimento da frota e nos deslocamentos da equipe.</p>
+        </div>
+        <div class="eco-card__img"><img src="assets/svg/illus/combustivel.svg" alt="Ilustração de bomba de combustível com selo de 1,5% de cashback"></div>
+      </li>
+      <li class="eco-card">
+        <div class="eco-card__copy">
+          <span class="chip"><img src="assets/svg/star.svg" alt="" aria-hidden="true"><b>Softwares de Gestão:</b></span>
+          <p>Assinaturas de ERP, CRM e ferramentas do dia a dia devolvendo dinheiro todo mês.</p>
+        </div>
+        <div class="eco-card__img"><img src="assets/svg/illus/softwares.svg" alt="Ilustração de notebook com gráfico de crescimento"></div>
+      </li>
+      <li class="eco-card">
+        <div class="eco-card__copy">
+          <span class="chip"><img src="assets/svg/star.svg" alt="" aria-hidden="true"><b>Alimentação:</b></span>
+          <p>Refeições da equipe, reuniões e eventos também viram cashback.</p>
+        </div>
+        <div class="eco-card__img"><img src="assets/svg/illus/alimentacao.svg" alt="Ilustração de prato com talheres e selo de 1,5% de cashback"></div>
+      </li>
+      <li class="eco-card">
+        <div class="eco-card__copy">
+          <span class="chip"><img src="assets/svg/star.svg" alt="" aria-hidden="true"><b>Viagens:</b></span>
+          <p>Passagens, hospedagens e transporte nas viagens de negócio.</p>
+        </div>
+        <div class="eco-card__img"><img src="assets/svg/illus/viagens.svg" alt="Ilustração de cartão de embarque e avião"></div>
+      </li>
+      <li class="eco-card">
+        <div class="eco-card__copy">
+          <span class="chip"><img src="assets/svg/star.svg" alt="" aria-hidden="true"><b>Anúncios Online:</b></span>
+          <p>Campanhas pagas que geram vendas e ainda devolvem dinheiro para o caixa.</p>
+        </div>
+        <div class="eco-card__img"><img src="assets/svg/illus/anuncios.svg" alt="Ilustração de megafone com selo de 1,5% de cashback"></div>
+      </li>
+      <li class="eco-card">
+        <div class="eco-card__copy">
+          <span class="chip"><img src="assets/svg/star.svg" alt="" aria-hidden="true"><b>Cartões Virtuais por Equipe:</b></span>
+          <p>Cada cartão criado para departamentos ou colaboradores também acumula cashback.</p>
+        </div>
+        <div class="eco-card__img"><img src="assets/svg/illus/cartoes.svg" alt="Ilustração de cartões virtuais empilhados com botão de adicionar"></div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- CTA que aparece no fim da pilha (mobile) -->
+  <div class="eco__end">
+    <a class="btn btn--lg" href="#proposta">
+      <span class="btn__label">Quero Meu Cashback</span>
+      <img class="btn__icon" src="assets/svg/arrow.svg" alt="" aria-hidden="true">
+    </a>
+  </div>
+</section>
+
+<!-- ============ 5. GESTÃO / APP ============ -->
+<section class="model">
+  <div class="model__card" aria-hidden="true"><img src="assets/img/card-front-cut.png" alt=""></div>
+  <div class="model__inner" data-reveal>
+    <h2 class="model__title">Conheça a Gestão Inteligente do <span class="grad grad--light">AMAIS FÁCIL</span></h2>
+    <p class="model__lead">
+      Crie cartões virtuais por departamento ou funcionário, estabeleça limites individuais e acompanhe os
+      gastos em tempo real pelo aplicativo. Controle total do caixa, sem planilha e sem susto na fatura.
+    </p>
+    <ul class="model__list">
+      <li>Cartões virtuais para assinaturas, anúncios e despesas da equipe</li>
+      <li>Limites personalizados para cada cartão em poucos toques</li>
+      <li>Gastos e cashback acompanhados em tempo real</li>
+    </ul>
+    <p class="model__dl">Baixe Agora:</p>
+    <div class="stores">
+      <a class="store" href="#" aria-label="Baixar na App Store">App Store</a>
+      <a class="store" href="#" aria-label="Baixar no Google Play">Google Play</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. DEPOIMENTOS ============ -->
+<section class="quotes" id="depoimentos">
+  <div class="quotes__head" data-reveal>
+    <h2 class="h2">Quem já usa o <span class="grad">AMAIS FÁCIL</span> recomenda</h2>
+    <p class="lead">Milhares de empreendedores já profissionalizaram as finanças com o AMAIS FÁCIL.</p>
+  </div>
+  <ul class="quotes__grid">
+    <li class="quote" data-reveal>
+      <span class="chip"><img src="assets/svg/star.svg" alt="" aria-hidden="true"><b>★★★★★</b></span>
+      <p>"Eu usava meu cartão pessoal para pagar os anúncios da minha agência. Com o AMAIS FÁCIL, além de organizar as finanças, o cashback paga praticamente a conta de luz do escritório todo mês."</p>
+      <span class="quote__who"><b>Carlos S.</b> Fundador de Agência de Marketing</span>
+    </li>
+    <li class="quote" data-reveal>
+      <span class="chip"><img src="assets/svg/star.svg" alt="" aria-hidden="true"><b>★★★★★</b></span>
+      <p>"Abri minha loja há 6 meses e nenhum banco me dava crédito. O AMAIS FÁCIL confiou no meu negócio e a plataforma é incrivelmente simples de usar."</p>
+      <span class="quote__who"><b>Mariana T.</b> Empreendedora no Varejo</span>
+    </li>
+    <li class="quote" data-reveal>
+      <span class="chip"><img src="assets/svg/star.svg" alt="" aria-hidden="true"><b>★★★★★</b></span>
+      <p>"A aprovação em menos de 2 minutos me salvou quando precisei renovar os servidores da minha startup. O cashback de 1,5% direto na conta é um diferencial gigante."</p>
+      <span class="quote__who"><b>Rafael M.</b> CEO de Startup Tech</span>
+    </li>
+    <li class="quote" data-reveal>
+      <span class="chip"><img src="assets/svg/star.svg" alt="" aria-hidden="true"><b>★★★★★</b></span>
+      <p>"Gestão impecável de cartões virtuais para a nossa equipe. Consigo limitar o teto de gastos por departamento sem burocracia nenhuma."</p>
+      <span class="quote__who"><b>Fernanda L.</b> Diretora de Operações</span>
+    </li>
+  </ul>
+</section>
+
+<!-- ============ 7. FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="faq__inner">
+    <div class="faq__head" data-reveal>
+      <h2 class="h2">Perguntas <span class="grad">Frequentes</span></h2>
+      <p class="lead">Tudo o que você precisa saber antes de solicitar o seu AMAIS FÁCIL.</p>
+    </div>
+    <div class="faq__list" data-reveal>
+      <details>
+        <summary>Quem pode solicitar o cartão AMAIS FÁCIL?</summary>
+        <p>O AMAIS FÁCIL foi desenvolvido para microempreendedores individuais (MEIs), pequenas e médias empresas de todos os setores que buscam crédito transparente, anuidade zero e cashback real.</p>
+      </details>
+      <details>
+        <summary>Empresas e CNPJs recém-abertos podem solicitar?</summary>
+        <p>Sim! Nossa esteira de análise avalia o potencial de crescimento e fluxo operacional do negócio, sem exigir anos de histórico contábil para liberar limite inicial.</p>
+      </details>
+      <details>
+        <summary>Como funciona o cashback de 1,5%?</summary>
+        <p>Todas as compras feitas com o cartão geram 1,5% de dinheiro de volta. O valor é creditado diretamente como desconto na fatura ou saldo em conta, sem expirar e sem catálogos de pontos confusos.</p>
+      </details>
+      <details>
+        <summary>Existe anuidade ou cobrança de tarifas ocultas?</summary>
+        <p>Não. O cartão AMAIS FÁCIL possui anuidade zero e isenção total de taxas de emissão ou manutenção. Você só paga o que consumir na fatura.</p>
+      </details>
+      <details>
+        <summary>Em quanto tempo recebo a resposta da proposta?</summary>
+        <p>Nossa análise expressa é 100% digital e o retorno é enviado em até 2 minutos após o preenchimento dos dados básicos da empresa e do sócio.</p>
+      </details>
+      <details>
+        <summary>Como funciona a gestão de múltiplos cartões virtuais?</summary>
+        <p>Pelo aplicativo, você pode criar cartões virtuais individuais para assinaturas de software, anúncios online ou despesas de colaboradores, definindo limites personalizados para cada um.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. 3 PASSOS + APP ============ -->
+<section class="partner" id="como-funciona">
+  <div class="partner__copy" data-reveal>
+    <span class="tag tag--solid">Sem papelada, sem filas, sem espera</span>
+    <h2 class="partner__title">Seu cartão AMAIS FÁCIL a apenas 3 passos de distância</h2>
+    <ol class="steps">
+      <li><span class="steps__n">01</span><p><b>Preencha seus dados.</b> Leva menos de 2 minutos: só o CNPJ e os dados básicos do sócio responsável.</p></li>
+      <li><span class="steps__n">02</span><p><b>Análise expressa.</b> Nossa tecnologia avalia o seu perfil na hora, sem burocracia e sem exigências descabidas.</p></li>
+      <li><span class="steps__n">03</span><p><b>Cartão e saldo liberados.</b> Cartão virtual disponível para uso imediato e o físico enviado para o seu endereço.</p></li>
+    </ol>
+    <a class="btn btn--lg" href="#proposta">
+      <span class="btn__label">Solicitar Meu Cartão</span>
+      <img class="btn__icon" src="assets/svg/arrow.svg" alt="" aria-hidden="true">
+    </a>
+  </div>
+
+  <div class="partner__app">
+    <div class="app-mock">
+      <div class="phone" role="img" aria-label="Aplicativo AMAIS FÁCIL mostrando limite do cartão, cashback e transações">
+        <span class="phone__notch" aria-hidden="true"></span>
+        <div class="phone__screen">
+          <div class="app__status">
+            <span>19:02</span>
+            <span class="app__status-icons" aria-hidden="true">
+              <svg viewBox="0 0 18 12" width="15"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+              <svg viewBox="0 0 16 12" width="14"><path d="M8 10.6 5.6 8.2a3.4 3.4 0 0 1 4.8 0zM8 6.2c-1.5 0-2.9.6-4 1.6L2.6 6.4A7.6 7.6 0 0 1 8 4.2c2 0 3.9.8 5.4 2.2L12 7.8a5.7 5.7 0 0 0-4-1.6M8 2.2c-2.6 0-5 1-6.8 2.7L0 3.6A11.6 11.6 0 0 1 8 .4c3.1 0 6 1.2 8 3.2l-1.2 1.3A9.6 9.6 0 0 0 8 2.2"/></svg>
+              <svg viewBox="0 0 24 12" width="20"><rect x="0" y="1" width="20" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2" y="3" width="16" height="6" rx="1.5"/><rect x="21.5" y="4" width="2" height="4" rx="1"/></svg>
+            </span>
+          </div>
+
+          <img class="app__logo" src="assets/svg/logo.svg" alt="AMAIS FÁCIL" width="69" height="42">
+
+          <div class="app__user">
+            <span class="app__avatar" aria-hidden="true">
+              <svg viewBox="0 0 40 40"><circle cx="20" cy="15" r="7"/><path d="M6 38a14 14 0 0 1 28 0z"/></svg>
+            </span>
+            <span class="app__hello"><small>Olá</small><b>Studio Norte</b></span>
+            <span class="app__help" aria-hidden="true">?</span>
+          </div>
+
+          <div class="app__row"><span class="app__eyebrow">CARTÃO EMPRESARIAL</span><span class="app__link">Detalhes ›</span></div>
+
+          <div class="app__card">
+            <div class="app__card-top">
+              <span>•••• 4567</span>
+              <span class="mc" aria-hidden="true"><i></i><i></i></span>
+            </div>
+            <div class="app__card-bottom">
+              <span><small>Limite disponível</small><b>R$ 12.400,00</b></span>
+              <span class="app__eye" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 5C6.5 5 2.7 9.4 1.5 11.4a1.2 1.2 0 0 0 0 1.2C2.7 14.6 6.5 19 12 19s9.3-4.4 10.5-6.4a1.2 1.2 0 0 0 0-1.2C21.3 9.4 17.5 5 12 5m0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <ul class="app__actions">
+            <li><span aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2 10h20" stroke="currentColor" stroke-width="1.6"/></svg></span>Meu cartão</li>
+            <li><span aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="15" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 4h12a2 2 0 0 1 2 2v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>Virtuais</li>
+            <li><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cashback</li>
+          </ul>
+
+          <p class="app__eyebrow app__eyebrow--pad">O MELHOR PARA SUA EMPRESA</p>
+          <div class="app__promos">
+            <article class="app__promo app__promo--a">
+              <span class="app__badge">Novo!</span>
+              <b>Cashback 1,5%</b>
+              <small>Direto na fatura, sem expirar.</small>
+            </article>
+            <article class="app__promo app__promo--b">
+              <b>Cartões Virtuais</b>
+              <small>Um para cada equipe.</small>
+            </article>
+          </div>
+
+          <div class="app__row">
+            <b class="app__title">Transações Recentes</b>
+            <span class="app__tools" aria-hidden="true">
+              <i><svg viewBox="0 0 24 24"><path d="M7 4v16m0 0-3-3m3 3 3-3M17 20V4m0 0-3 3m3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></i>
+              <i><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></i>
+            </span>
+          </div>
+          <p class="app__month">Agosto 2026</p>
+          <ul class="app__tx">
+            <li>
+              <span class="app__tx-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10h4l8-5v14l-8-5H4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+              <span><b>Anúncios online</b><small>02 Ago 2026</small></span>
+              <em>-R$ 1.250,00</em>
+            </li>
+            <li>
+              <span class="app__tx-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14M3 20h14M15 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V9l-3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span><b>Combustível frota</b><small>01 Ago 2026</small></span>
+              <em>-R$ 389,40</em>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- âncora do cartão voador nesta seção -->
+      <div class="app-mock__slot" id="slotPhoneCard" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. FORMULÁRIO (última) ============ -->
+<section class="cta" id="proposta">
+  <div class="cta__copy" data-reveal>
+    <h2 class="h2">Pronto para começar sua jornada com o <span class="grad">AMAIS FÁCIL</span>?</h2>
+    <p class="lead">Preencha os dados abaixo para que nossa equipe prepare uma proposta de crédito sob medida para o perfil da sua empresa.</p>
+
+    <form class="form" id="propostaForm" novalidate>
+      <div class="field">
+        <label for="nome">Nome e Sobrenome do Responsável</label>
+        <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Como consta no documento do sócio" required>
+        <small class="field__err" data-err></small>
+      </div>
+
+      <div class="field">
+        <label for="cnpj">CNPJ da Empresa</label>
+        <input type="text" id="cnpj" name="cnpj" inputmode="numeric" maxlength="18" placeholder="00.000.000/0001-00" required>
+        <small class="field__err" data-err></small>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="email">E-mail Corporativo</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="voce@empresa.com.br" required>
+          <small class="field__err" data-err></small>
+        </div>
+        <div class="field">
+          <label for="telefone">Telefone com DDD (WhatsApp)</label>
+          <input type="tel" id="telefone" name="telefone" inputmode="tel" maxlength="15" autocomplete="tel" placeholder="(00) 00000-0000" required>
+          <small class="field__err" data-err></small>
+        </div>
+      </div>
+
+      <label class="check">
+        <input type="checkbox" id="lgpd" name="lgpd" required>
+        <span class="check__box" aria-hidden="true"></span>
+        <span class="check__text">Declaro que li e concordo com a <a href="#privacidade">Política de Privacidade</a> e autorizo o contato comercial conforme as diretrizes da LGPD.</span>
+      </label>
+      <small class="field__err" data-err data-for="lgpd"></small>
+
+      <button class="btn btn--lg btn--block" type="submit">
+        <span class="btn__label">Receber Minha Proposta Personalizada</span>
+        <img class="btn__icon" src="assets/svg/arrow.svg" alt="" aria-hidden="true">
+      </button>
+
+      <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <div class="cta__hand">
+    <img class="hand-photo" id="handB" src="assets/img/hand-card-2-empty.png" alt="Mão segurando o cartão AMAIS FÁCIL">
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="atendimento">
+  <div class="footer__inner" data-reveal>
+    <div class="footer__brand">
+      <img src="assets/svg/logo-white.svg" alt="AMAIS FÁCIL" width="69" height="42">
+      <p>Crédito corporativo, cartão com cashback real e soluções financeiras inteligentes para empresas e empreendedores que buscam crescer com previsibilidade.</p>
+    </div>
+
+    <div class="footer__col">
+      <h3>Soluções</h3>
+      <ul class="footer__list footer__list--links">
+        <li><a href="#vantagens">Anuidade zero</a></li>
+        <li><a href="#cashback">Cashback de 1,5%</a></li>
+        <li><a href="#como-funciona">Cartões virtuais</a></li>
+        <li><a href="#proposta">Solicitar Cartão</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h3>Navegação</h3>
+      <ul class="footer__list footer__list--links">
+        <li><a href="#topo">Início</a></li>
+        <li><a href="#solucoes">Soluções</a></li>
+        <li><a href="#vantagens">Vantagens</a></li>
+        <li><a href="#como-funciona">Como Funciona</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#faq">Perguntas Frequentes</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer__legal" id="privacidade">
+    <h3>Informações Legais e Termos</h3>
+    <p>
+      © 2026 AMAIS FÁCIL. Todos os direitos reservados. Operações estruturadas de acordo com as normas vigentes
+      do Banco Central do Brasil para meios de pagamento e crédito empresarial.
+    </p>
+  </div>
+</footer>
+
+<!-- ===== camadas de animação (fora do fluxo) ===== -->
+<!-- ponta dos dedos que fica na frente do cartão na hero -->
+<div class="hero-fg" id="heroFg" aria-hidden="true">
+  <picture>
+    <source media="(max-width: 900px)" srcset="assets/img/hero-fingers-mobile.png">
+    <img src="assets/img/hero-fingers.png" alt="">
+  </picture>
+</div>
+<div class="fly" id="flyA" aria-hidden="true"><div class="fly__inner"><img src="assets/img/card-front-cut.png" alt=""></div></div>
+<div class="fly" id="flyB" aria-hidden="true"><div class="fly__inner"><img src="assets/img/card-front-cut.png" alt=""></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

@@ -370,6 +370,17 @@ body.menu-open{ overflow:hidden }
 .tag--solid{ background:#fff }
 .eco__left .btn{ margin-top:clamp(8px,1.5vw,30px) }
 
+/* fotos de campanha (Nano Banana Pro) nos espaços vazios do cashback e das perguntas */
+.photo{
+  margin:0; width:100%; overflow:hidden; border-radius:24px;
+  background:#efeaf5;
+  box-shadow:0 30px 60px -42px rgba(18,1,40,.6);
+}
+.photo img{ display:block; width:100%; height:100%; object-fit:cover }
+/* a coluna do cashback é fixa na tela: a foto não pode passar da altura da janela */
+.eco__photo{ aspect-ratio:16/10; max-height:34vh; margin-top:clamp(8px,1.2vw,24px) }
+.faq__photo{ aspect-ratio:4/3; margin-top:clamp(16px,2vw,32px) }
+
 .eco__cards{ display:flex; flex-direction:column; gap:30px }
 /* cartões escuros: o fundo é a mesma cor da borda das fotos (#120128),
    então a foto encaixa sem emenda */
@@ -933,6 +944,8 @@ body.menu-open{ overflow:hidden }
   .quote,.quote--big{ grid-column:auto }
   .faq__inner{ grid-template-columns:1fr }
   .faq__head{ position:static }
+  .eco__photo{ max-height:none; margin-top:6px }
+  .faq__photo{ aspect-ratio:16/10 }
   .pains{ grid-template-columns:1fr }
   .steps li{ gap:12px }
   .model__title,.model__lead,.model__list{ max-width:none }

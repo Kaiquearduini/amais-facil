@@ -160,12 +160,12 @@
   /* --- Frações medidas nas fotos originais --- */
 
   /* onde a silhueta da modelo começa, na faixa vertical do título/parágrafo
-     (hero-woman.png 2383×1341) — usado para limitar a largura do texto */
+     (hero-woman.webp 2383×1341) — usado para limitar a largura do texto */
   var HERO_SILHOUETTE_X = 0.50;
   var HERO_TEXT_GAP = 44;
 
   /* cartão na mão da modelo — cada recorte tem sua própria fração.
-     desktop: hero-woman.png 2383×1341 · mobile: hero-woman-mobile.png 2383×1530 */
+     desktop: hero-woman.webp 2383×1341 · mobile: hero-woman-mobile.webp 2383×1530 */
   var HERO_F_DESKTOP = { cx: 0.72410, cy: 0.34340, h: 0.034676 };
   var HERO_F_MOBILE  = { cx: 0.72410, cy: 0.42451, h: 0.030392 };
   var HERO_ROT = { rx: 0, ry: 0, rz: -6.2 };

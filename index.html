@@ -417,7 +417,10 @@
     <h2 class="h2">Pronto para começar sua jornada com o <span class="grad">AMAIS FÁCIL</span>?</h2>
     <p class="lead">Preencha os dados abaixo para que nossa equipe prepare uma proposta de crédito sob medida para o perfil da sua empresa.</p>
 
-    <form class="form" id="propostaForm" novalidate>
+    <form class="form" id="propostaForm" name="proposta" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="proposta">
+      <p hidden><label>Não preencha: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
       <div class="field">
         <label for="nome">Nome e Sobrenome do Responsável</label>
         <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Como consta no documento do sócio" required>

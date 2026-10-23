@@ -467,24 +467,41 @@
         return;
       }
 
-      /* Sem back-end configurado: o payload fica pronto para o endpoint real. */
-      var payload = {
+      /* Netlify Forms: o formulário "proposta" é detectado no index.html a cada deploy. */
+      var payload = new URLSearchParams({
+        'form-name': 'proposta',
+        'bot-field': form.elements['bot-field'].value,
         nome: form.elements.nome.value.trim(),
-        cnpj: onlyDigits(form.elements.cnpj.value),
-        telefone: onlyDigits(form.elements.telefone.value),
+        cnpj: form.elements.cnpj.value,
         email: form.elements.email.value.trim(),
-        lgpd: true,
-        origem: window.location.href
-      };
-      console.info('[AMAIS FÁCIL] proposta pronta para envio:', payload);
-
-      status.textContent = 'Recebemos seus dados. Nossa equipe AMAIS FÁCIL entrará em contato em breve.';
-      status.className = 'form__status is-ok';
-      form.reset();
-      Object.keys(RULES).forEach(function (n) {
-        if (form.elements[n]) form.elements[n].setAttribute('aria-invalid', 'false');
+        telefone: form.elements.telefone.value,
+        lgpd: 'Sim, aceitou a Política de Privacidade'
       });
-      $$('[data-err]').forEach(function (s) { s.textContent = ''; });
+
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      status.textContent = 'Enviando seus dados...';
+      status.className = 'form__status';
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: payload.toString()
+      }).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        status.textContent = 'Recebemos seus dados. Nossa equipe AMAIS FÁCIL entrará em contato em breve.';
+        status.className = 'form__status is-ok';
+        form.reset();
+        Object.keys(RULES).forEach(function (n) {
+          if (form.elements[n]) form.elements[n].setAttribute('aria-invalid', 'false');
+        });
+        $$('[data-err]').forEach(function (s) { s.textContent = ''; });
+      }).catch(function () {
+        status.textContent = 'Não foi possível enviar agora. Tente de novo em instantes.';
+        status.className = 'form__status is-err';
+      }).then(function () {
+        btn.disabled = false;
+      });
     });
   }
 

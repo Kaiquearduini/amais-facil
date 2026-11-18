@@ -1,7 +1,21 @@
 /* =========================================================
    AMAIS FÁCIL — landing (layout do CC Card, identidade AMAIS)
-   Fonte: PP Neue Montreal (carregada no <head>)
+   Fonte: PP Neue Montreal (arquivos do cdnfonts, declarados aqui)
    ========================================================= */
+
+/* Antes vinha um CSS externo do cdnfonts que travava a página até carregar.
+   Aqui ficam só os 4 pesos usados, com font-display:fallback: se a fonte chega
+   rápido (o normal, porque o <head> já pede antes), não há troca; se demora,
+   o texto aparece com a fonte reserva e não pula depois de 3 s.
+   300 continua caindo no Thin (100), como era com o CSS do cdnfonts. */
+@font-face{ font-family:"PP Neue Montreal"; font-style:normal; font-weight:100; font-display:fallback;
+  src:local("PP Neue Montreal Thin"), url("https://fonts.cdnfonts.com/s/100431/ppneuemontreal-thin.woff") format("woff") }
+@font-face{ font-family:"PP Neue Montreal"; font-style:normal; font-weight:400; font-display:fallback;
+  src:local("PP Neue Montreal Book"), url("https://fonts.cdnfonts.com/s/100431/ppneuemontreal-book.woff") format("woff") }
+@font-face{ font-family:"PP Neue Montreal"; font-style:normal; font-weight:500; font-display:fallback;
+  src:local("PP Neue Montreal Medium"), url("https://fonts.cdnfonts.com/s/100431/ppneuemontreal-medium.woff") format("woff") }
+@font-face{ font-family:"PP Neue Montreal"; font-style:normal; font-weight:700; font-display:fallback;
+  src:local("PP Neue Montreal Bold"), url("https://fonts.cdnfonts.com/s/100431/ppneuemontreal-bold.woff") format("woff") }
 
 /* ---------- tokens ---------- */
 :root{
@@ -43,6 +57,8 @@ body{
 }
 img{max-width:100%; display:block}
 a{color:inherit}
+/* sem o "flash" azul do Android ao tocar em links e botões */
+a,button,summary,label{ -webkit-tap-highlight-color:transparent }
 h1,h2,h3{margin:0; font-weight:700; line-height:1.08}
 p{margin:0}
 ul,ol{margin:0; padding:0; list-style:none}
@@ -302,7 +318,7 @@ body.menu-open{ overflow:hidden }
 .band{
   position:relative; isolation:isolate;
   padding:clamp(40px,3.8vw,73px) var(--gut);
-  background:var(--blue) url("../assets/img/band-bg.png") center/cover no-repeat;
+  background:var(--blue) url("../assets/img/band-bg.webp") center/cover no-repeat;
   color:#fff;
 }
 /* pilha centrada: com um bloco de texto só, as três colunas do original
@@ -404,7 +420,7 @@ body.menu-open{ overflow:hidden }
 }
 .chip b{
   color:var(--sky-soft);
-  font-size:clamp(10.5px,.7vw,13.5px); font-weight:700; line-height:1.2;
+  font-size:clamp(11.5px,.75vw,13.5px); font-weight:700; line-height:1.2;
   letter-spacing:.14em; text-transform:uppercase;
 }
 .eco-card__copy p{

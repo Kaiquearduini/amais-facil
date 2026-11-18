@@ -143,18 +143,31 @@ section[id],footer[id]{ scroll-margin-top:96px }
   width:clamp(13px,.96vw,18.4px); height:auto; flex:0 0 auto;
   transition:transform .38s var(--ease), filter .3s ease;
 }
-.btn:hover,.btn:focus-visible{
+/* hover só onde existe mouse: no celular o :hover "gruda" depois do toque
+   e o botão ficava deslocado */
+.btn:focus-visible{
   transform:translate3d(6px,-6px,0) scale(1.055);
   color:#fff;
   box-shadow:0 22px 40px -18px rgba(0,0,0,.65);
 }
-.btn:hover::before,.btn:focus-visible::before{ opacity:0 }
-.btn:hover::after,.btn:focus-visible::after{ opacity:.35 }
-.btn:hover .btn__icon,.btn:focus-visible .btn__icon{
-  transform:translateX(4px);
-  filter:brightness(0) invert(1);
+.btn:focus-visible::before{ opacity:0 }
+.btn:focus-visible::after{ opacity:.35 }
+.btn:focus-visible .btn__icon{ transform:translateX(4px); filter:brightness(0) invert(1) }
+@media (hover:hover){
+  .btn:hover{
+    transform:translate3d(6px,-6px,0) scale(1.055);
+    color:#fff;
+    box-shadow:0 22px 40px -18px rgba(0,0,0,.65);
+  }
+  .btn:hover::before{ opacity:0 }
+  .btn:hover::after{ opacity:.35 }
+  .btn:hover .btn__icon{ transform:translateX(4px); filter:brightness(0) invert(1) }
+  .btn:active{ transform:translate3d(3px,-2px,0) scale(1.01) }
 }
-.btn:active{ transform:translate3d(3px,-2px,0) scale(1.01) }
+/* toque: o botão "afunda" de leve, como no iOS */
+@media (hover:none){
+  .btn:active{ transform:scale(.96); transition-duration:.12s }
+}
 /* fundo preto do hover */
 .btn{ background:#000 }
 
@@ -202,7 +215,9 @@ section[id],footer[id]{ scroll-margin-top:96px }
   font-size:var(--f-nav); text-decoration:none;
   transition:transform .35s var(--ease), background .3s ease, color .3s ease;
 }
-.pill-link:hover{ transform:translate3d(4px,-4px,0) scale(1.04); background:#000; color:#fff }
+@media (hover:hover){
+  .pill-link:hover{ transform:translate3d(4px,-4px,0) scale(1.04); background:#000; color:#fff }
+}
 
 .burger{
   display:none;
@@ -754,8 +769,51 @@ body.menu-open{ overflow:hidden }
 /* =========================================================
    Reveal on scroll
    ========================================================= */
-[data-reveal]{ opacity:0; transform:translateY(26px); transition:opacity .7s var(--ease), transform .7s var(--ease) }
+:root{ --ease-out:cubic-bezier(.16,1,.3,1) } /* desaceleração longa, estilo Apple */
+[data-reveal]{ opacity:0; transform:translateY(26px); transition:opacity .7s var(--ease), transform .9s var(--ease-out) }
 [data-reveal].is-in{ opacity:1; transform:none }
+
+/* listas entram em cascata: um item depois do outro, depois que o bloco aparece */
+[data-reveal] :is(.pains, .adv, .band__notes, .model__list, .steps) > li,
+.faq__list[data-reveal] > details{
+  opacity:0; transform:translateY(16px);
+  transition:opacity .6s var(--ease), transform .8s var(--ease-out), background .3s ease;
+}
+.is-in :is(.pains, .adv, .band__notes, .model__list, .steps) > li,
+.faq__list.is-in > details{ opacity:1; transform:none }
+:is(.pains, .adv, .band__notes, .model__list, .steps) > li:nth-child(1), .faq__list > details:nth-child(1){ transition-delay:.12s }
+:is(.pains, .adv, .band__notes, .model__list, .steps) > li:nth-child(2), .faq__list > details:nth-child(2){ transition-delay:.2s }
+:is(.pains, .adv, .band__notes, .model__list, .steps) > li:nth-child(3), .faq__list > details:nth-child(3){ transition-delay:.28s }
+:is(.pains, .adv, .band__notes, .model__list, .steps) > li:nth-child(4), .faq__list > details:nth-child(4){ transition-delay:.36s }
+:is(.pains, .adv, .band__notes, .model__list, .steps) > li:nth-child(5), .faq__list > details:nth-child(5){ transition-delay:.44s }
+.faq__list > details:nth-child(6){ transition-delay:.52s }
+/* depois que entrou, o fundo do item da pergunta muda sem atraso */
+.faq__list.is-in > details.is-settled{ transition-delay:0s }
+
+/* depoimentos no computador: o segundo cartão de cada linha vem um instante depois */
+@media (min-width:901px){
+  .quote:nth-child(2n){
+    transition:opacity .7s var(--ease) .14s, transform .9s var(--ease-out) .14s, box-shadow .5s var(--ease);
+  }
+}
+
+/* entrada da página: a foto assenta e título, texto, botão e cartão entram em sequência.
+   A classe "intro" é posta no <head> (só sem "reduzir movimento") e o main.js liga "intro-go". */
+.intro .hero__media picture{ transform:scale(1.06) }
+.intro :is(.hero__title, .hero__lead, .hero .btn){ opacity:0; transform:translateY(24px) }
+.intro .site-header{ opacity:0; transform:translateY(-10px) }
+.intro .fly, .intro .hero-fg{ opacity:0 !important }
+.intro.intro-go .hero__media picture{ transform:none; transition:transform 1.8s var(--ease-out) }
+.intro.intro-go :is(.hero__title, .hero__lead, .hero .btn), .intro.intro-go .site-header{ opacity:1; transform:none }
+.intro.intro-go .site-header{ transition:opacity .8s var(--ease), transform 1s var(--ease-out) }
+.intro.intro-go .hero__title{ transition:opacity .9s var(--ease) .12s, transform 1.1s var(--ease-out) .12s }
+.intro.intro-go .hero__lead{ transition:opacity .9s var(--ease) .26s, transform 1.1s var(--ease-out) .26s }
+.intro.intro-go .hero .btn{ transition:opacity .9s var(--ease) .4s, transform 1.1s var(--ease-out) .4s }
+.intro.intro-go .fly.is-live, .intro.intro-go .hero-fg.is-live{ opacity:1 !important; transition:opacity .9s var(--ease) .55s }
+
+/* o degradê dos títulos só anda quando o título está na tela (economiza bateria no celular) */
+.grad{ animation-play-state:paused }
+.grad.is-vis{ animation-play-state:running }
 
 /* =========================================================
    BREAKPOINTS

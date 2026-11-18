@@ -200,6 +200,11 @@
   var flyA = slotFlat ? new FlyCard($('#flyA')) : null;
   var flyB = slotPhone ? new FlyCard($('#flyB')) : null;
 
+  /* no celular o texto da 1ª seção fica entre a mão da modelo e o slot do cartão:
+     ele só aparece quando o cartão pousa, para o cartão nunca voar por cima de texto */
+  var s2First = $('.s2__row:not(.s2__row--rev) .s2__text');
+  function revealS2First() { if (s2First && !s2First.classList.contains('is-in')) s2First.classList.add('is-in'); }
+
   var M = {};   /* marcos em coordenadas de documento */
 
   /* Limita o texto da hero para ele nunca alcançar a modelo.
@@ -273,7 +278,9 @@
         var ta = ease(clamp01((y - M.a0) / (M.a1 - M.a0)));
         target = lerpTarget(heroT, flatT, ta);
         rot = lerpRot(HERO_ROT, FLAT_ROT, ta);
+        if (mobile && ta > 0.86) revealS2First();
       } else {
+        if (mobile) revealS2First();
         var tb = ease(clamp01((y - M.a1) / (M.b1 - M.a1)));
         target = lerpTarget(flatT, tiltT, tb);
         rot = lerpRot(FLAT_ROT, TILT_ROT, tb);
@@ -339,10 +346,23 @@
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        if (!e.isIntersecting) return;
+        /* no celular quem revela este texto é o pouso do cartão (frame) */
+        if (e.target === s2First && isMobile() && !reduced && flyA) return;
+        e.target.classList.add('is-in'); io.unobserve(e.target);
+        /* depois da cascata, o fundo da pergunta aberta muda sem atraso */
+        if (e.target.classList.contains('faq__list')) {
+          window.setTimeout(function () { $$('details', e.target).forEach(function (d) { d.classList.add('is-settled'); }); }, 1400);
+        }
       });
     }, { rootMargin: '0px 0px -12% 0px' });
     $$('[data-reveal]').forEach(function (el) { io.observe(el); });
+
+    /* o degradê animado dos títulos só roda enquanto o título está na tela */
+    var ioGrad = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.target.classList.toggle('is-vis', e.isIntersecting); });
+    });
+    $$('.grad').forEach(function (el) { ioGrad.observe(el); });
 
     if (ecoEnd && ecoCards.length) {
       var last = ecoCards[ecoCards.length - 1];
@@ -354,8 +374,37 @@
   } else {
     /* sem IntersectionObserver nada pode ficar invisível */
     $$('[data-reveal]').forEach(function (el) { el.classList.add('is-in'); });
+    $$('.grad').forEach(function (el) { el.classList.add('is-vis'); });
     if (ecoEnd) ecoEnd.classList.add('is-in');
   }
+
+  /* =======================================================
+     6b. Perguntas frequentes: abrem e fecham deslizando
+     ======================================================= */
+  $$('.faq details').forEach(function (d) {
+    var sum = $('summary', d);
+    var resp = $('p', d);
+    if (!sum) return;
+    sum.addEventListener('click', function (e) {
+      if (reduced || !d.animate) return;          /* sem animação: comportamento nativo */
+      e.preventDefault();
+      if (d.getAttribute('data-anim')) return;
+      var ini = d.offsetHeight, fim, fechando = d.open;
+      d.style.overflow = 'hidden';
+      if (!fechando) { d.open = true; fim = d.offsetHeight; }
+      else { fim = sum.offsetHeight + (d.offsetHeight - d.clientHeight); }
+      d.setAttribute('data-anim', '1');
+      var a = d.animate([{ height: ini + 'px' }, { height: fim + 'px' }],
+        { duration: fechando ? 340 : 460, easing: 'cubic-bezier(.16,1,.3,1)' });
+      if (!fechando && resp) resp.animate([{ opacity: 0, transform: 'translateY(-6px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 420, delay: 60, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' });
+      a.onfinish = function () {
+        if (fechando) d.open = false;
+        d.style.overflow = '';
+        d.removeAttribute('data-anim');
+      };
+    });
+  });
 
   /* =======================================================
      7. Formulário — máscaras e validação
@@ -515,6 +564,27 @@
   }
 
   boot();
+
+  /* entrada da página: dispara quando a foto do topo está pronta (ou em 1,2 s, o que vier
+     primeiro). Se a página abriu já rolada (link com #, recarregar no meio), não há entrada. */
+  (function intro() {
+    var root = document.documentElement, foi = false;
+    if (!root.classList.contains('intro')) return;
+    if (window.scrollY > 40) { root.classList.remove('intro'); return; }
+    function vai() {
+      if (foi) return; foi = true;
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () { root.classList.add('intro-go'); });
+      });
+      window.setTimeout(function () { root.classList.remove('intro', 'intro-go'); }, 2300);
+    }
+    if (heroPhoto && !(heroPhoto.complete && heroPhoto.naturalWidth)) {
+      heroPhoto.addEventListener('load', vai);
+      heroPhoto.addEventListener('error', vai);
+      window.setTimeout(vai, 1200);
+    } else vai();
+  })();
+
   window.addEventListener('load', function () { measure(); reduced ? staticPlace() : request(); });
   /* o <picture> troca de arquivo ao cruzar o breakpoint — remedir junto */
   if (heroPhoto) {

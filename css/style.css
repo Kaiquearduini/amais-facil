@@ -469,15 +469,6 @@ body.menu-open{ overflow:hidden }
   font-size:clamp(15px,1.08vw,19px); line-height:1.35; color:rgba(255,255,255,.9);
 }
 .model__list li + li{ border-top:1px solid rgba(255,255,255,.08) }
-.model__dl{ font-size:var(--f-lead); margin-top:clamp(10px,1.4vw,26px) }
-.stores{ display:flex; gap:12px; flex-wrap:wrap }
-.store{
-  display:inline-flex; align-items:center;
-  padding:10px 22px; border:1px solid rgba(255,255,255,.6); border-radius:12px;
-  font-size:clamp(12px,.83vw,16px); text-decoration:none;
-  transition:background .3s ease, color .3s ease, transform .35s var(--ease);
-}
-.store:hover{ background:#fff; color:var(--deep); transform:translateY(-3px) }
 
 /* =========================================================
    7. PARCEIROS
